@@ -3,14 +3,13 @@
 #include "graphAlgo.h"
 
 using namespace std;
-using namespace graphs;
 
 int main()
 {
-    Graph graph;
-    Console console;
+    graphs::Graph graph;
+    graphs::Console console;
     console.readMatrix(graph);
-    Dextra algo;
+    graphs::Dextra algo;
     algo.setGraph(&graph);
     algo.start(1);
     for (auto v : algo.getDistance()){

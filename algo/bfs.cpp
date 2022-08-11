@@ -1,5 +1,6 @@
 #include "bfs.h"
 #include <queue>
+#include <limits>
 
 namespace graphs {
 
@@ -41,7 +42,7 @@ void Bfs::init()
     m_distance.clear();
     m_parent.clear();
     for(const Vertex& vertex : graph()->vertexes()){
-        m_distance[vertex.getIndex()] = INT_MAX; //Максимальное значение расстояния
+        m_distance[vertex.getIndex()] = std::numeric_limits<int>::max(); //Максимальное значение расстояния
         m_parent[vertex.getIndex()] = 0;
     }
 }

@@ -1,6 +1,6 @@
 #include "fordbellman.h"
 #include <queue>
-
+#include <limits>
 namespace graphs {
 
 FordBellman::FordBellman() : Bfs()
@@ -30,7 +30,7 @@ void FordBellman::fordbellman(size_t vertexIndex)
     for (;;) {
         bool exit = false;
         for(const Edge& edge: graph()->edges()){
-            if(m_distance[edge.getFirstVertexIndex()] < INT_MAX){
+            if(m_distance[edge.getFirstVertexIndex()] < std::numeric_limits<int>::max()){
                 if(m_distance[edge.getLastVertexIndex()] > m_distance[edge.getFirstVertexIndex()] + edge.getWeight()){
                     m_distance[edge.getLastVertexIndex()] = m_distance[edge.getFirstVertexIndex()] + edge.getWeight();
                     exit = true;

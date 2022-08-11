@@ -1,4 +1,5 @@
 #include "floid.h"
+#include <limits>
 
 namespace graphs {
 
@@ -29,7 +30,7 @@ void Floid::init()
     m_matrix.clear();
     for(const Vertex& vertex : graph()->vertexes()){
         for(const Vertex& vertex2 : graph()->vertexes()){
-            m_matrix[vertex.getIndex()][vertex2.getIndex()] = INT_MAX;
+            m_matrix[vertex.getIndex()][vertex2.getIndex()] = std::numeric_limits<int>::max();
         }
     }
     for(const Edge& edge : graph()->edges()){
